@@ -12,6 +12,11 @@ console.log(process.env)
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+app.get("/", (req, res) => {
+    res.send("<h1>Server is running</h1>");
+    });
+
+
 app.get("/weather", async (req, res) => {
     // Proxy server
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=frankfurt&appid=${process.env.SECRET_KEY}`);
